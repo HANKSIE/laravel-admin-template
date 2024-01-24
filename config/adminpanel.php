@@ -1,4 +1,5 @@
 <?php
+use App\Menu\Pipes\ActivePipe;
 
 return [
     'header' => [
@@ -10,6 +11,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Level 2.1',
+                    'is_active' => true,
                     'submenu' => [
                         [
                             'text' => 'Level 3.1',
@@ -28,4 +30,7 @@ return [
             'text' => 'Level 1.2',
         ]
     ],
+    'menu_pipes' => [
+        ActivePipe::class
+    ]
 ];

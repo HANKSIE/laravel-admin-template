@@ -1,4 +1,5 @@
-<div>
+@inject('menuBuilder', App\Menu\Builder::class)
+<div x-data>
     <div
         class="bg-primary d-flex justify-content-center align-items-center"
         style="height: {{ config('adminpanel.header.height') }}"
@@ -11,7 +12,7 @@
             overflow-y:scroll;
         "
     >
-        @foreach(config('adminpanel.menu') as $item)
+        @foreach(dd($menuBuilder->handle(config('adminpanel.menu'))) as $item)
             <x-app.sidebar.nested-menu-item :item="$item" />
         @endforeach
     </div>
